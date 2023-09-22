@@ -12,14 +12,44 @@
 
 </script>
 
-<h1>KNOX FANTASY LEAGUE 2023/24</h1>
-<div>Current GW {data.fplData.event}</div>
-<H2HStandingTable standings="{h2hStandings}"/>
-<FPLPointsStanding standings="{fplStandings}"/>
-<Players players="{players}"/>
+<div class="container">
+    <h1>KNOX FANTASY LEAGUE 2023/24</h1>
+    <div class="gw">Current GW {data.fplData.event}</div>
+    <div class="wrapper">
+        <H2HStandingTable standings="{h2hStandings}"/>
+        <FPLPointsStanding standings="{fplStandings}"/>
+        <Players players="{players}"/>
+    </div>
+</div>
 
 <style lang="less">
     h1 {
       color: red;
+      text-align: center;
+    }
+
+    .gw {
+      text-align: center;
+    }
+
+    .container {
+      margin: 0 auto;
+    }
+
+    .wrapper {
+      display: flex;
+      gap: 80px;
+      width: 1600px;
+    }
+
+    :global {
+      table, th, td {
+        border: 1px solid #000;
+      }
+
+      th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+      }
     }
 </style>

@@ -4,7 +4,7 @@
 
 <div>
     <h3>
-        Personal Best Standings
+        Personal Best Points Table
     </h3>
 
     <div>
