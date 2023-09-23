@@ -1,10 +1,13 @@
 <script>
     export let players;
+    export let headline;
+    export let key;
 </script>
+
 
 <div>
     <h3>
-        Personal Best Points Table
+        {headline}
     </h3>
 
     <div>
@@ -19,19 +22,18 @@
             <tbody>
             {#each players as player, index}
                 <tr>
-                    <td>{index+1}</td>
+                    <td>{index + 1}</td>
                     <td class="team-manager">
                         <span>{player.entryName}</span>
                         <span>{player.playerName}</span>
                     </td>
-                    <td>{player.personalBestWeekPoints}</td>
+                    <td>{player[key]}</td>
                 </tr>
             {/each}
             </tbody>
         </table>
     </div>
 </div>
-
 <style lang="less">
   .team-manager {
     display: flex;

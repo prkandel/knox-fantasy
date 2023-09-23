@@ -52,15 +52,42 @@ async function getPlayerData() {
 
         const personalBestWeekPoints = currentSeasonHistory.reduce((highest, current) => highest.points > current.points ? highest : current, currentSeasonHistory[0]).points
 
-        let totalPoints = (currentSeasonHistory[currentSeasonHistory.length - 1]).total_points;
+        const totalPoints = (currentSeasonHistory[currentSeasonHistory.length - 1]).total_points;
+
+        const allGwPoints = currentSeasonHistory.map(gw => gw.points - gw.event_transfers_cost);
+        const extendedGwPointsArray = extendArray(allGwPoints);
+        const quarterlyPoints = getQuarterlyPoints(extendedGwPointsArray);
         const player = {
             entryName: entry.entry_name,
             playerName: entry.player_name,
             totalPoints,
-            personalBestWeekPoints
+            personalBestWeekPoints,
+            q1TotalPoints: quarterlyPoints[0],
+            q2TotalPoints: quarterlyPoints[1],
+            q3TotalPoints: quarterlyPoints[2],
+            q4TotalPoints: quarterlyPoints[3],
         }
         players.push(player);
     }
-    players.sort((a, b) => b.personalBestWeekPoints - a.personalBestWeekPoints)
     return players;
+}
+
+function extendArray(givenArray) {
+    const extendedArray = Array.from({length: 38}, (_, i) => {
+        let extendValue = 0;
+        if (i < givenArray.length) {
+            extendValue = givenArray[i]
+        }
+        return extendValue;
+    });
+    return extendedArray;
+}
+
+function getQuarterlyPoints(extendedGwPointsArray) {
+    const startingGwIndices = [0, 9, 19, 28];
+    const endingGwIndices = [9, 19, 28, 38];
+    const quarterlyPoints = Array.from({length: 4}, (_, i) => {
+        return extendedGwPointsArray.slice(startingGwIndices[i], endingGwIndices[i]).reduce((acc, item) => acc+item, 0)
+    });
+    return quarterlyPoints;
 }

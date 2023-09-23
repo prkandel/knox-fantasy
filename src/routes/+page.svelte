@@ -1,8 +1,8 @@
 <script>
     import FPLPointsStanding from "../lib/FPLPointsStanding.svelte";
     import H2HStandingTable from "../lib/H2HStandingTable.svelte";
-    import Players from "../lib/Players.svelte";
-
+    import PersonalBestGWTable from "../lib/PersonalBestGWTable.svelte";
+    import QuarterlyStandings from "../lib/QuarterlyStandings.svelte";
     export let data;
     const h2hStandings = data.fplData.standings;
     const fplStandings = [...h2hStandings];
@@ -18,7 +18,8 @@
     <div class="wrapper">
         <H2HStandingTable standings="{h2hStandings}"/>
         <FPLPointsStanding standings="{fplStandings}"/>
-        <Players players="{players}"/>
+        <PersonalBestGWTable players="{players}"/>
+        <QuarterlyStandings players="{players}" quarter="{1}"/>
     </div>
 </div>
 
