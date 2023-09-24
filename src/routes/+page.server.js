@@ -49,6 +49,7 @@ async function getPlayerData() {
         let historyUrl = `${API_DOMAIN}/entry/${entry.entry}/history`
         const eventHistory = await (await fetch(historyUrl)).json();
         const currentSeasonHistory = eventHistory.current;
+        const chips = eventHistory.chips.map(chip => chip.name);
 
         const personalBestWeekPoints = currentSeasonHistory.reduce((highest, current) => highest.points > current.points ? highest : current, currentSeasonHistory[0]).points
 
@@ -66,6 +67,7 @@ async function getPlayerData() {
             q2TotalPoints: quarterlyPoints[1],
             q3TotalPoints: quarterlyPoints[2],
             q4TotalPoints: quarterlyPoints[3],
+            chips
         }
         players.push(player);
     }

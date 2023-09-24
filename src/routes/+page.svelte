@@ -3,6 +3,7 @@
     import H2HStandingTable from "../lib/H2HStandingTable.svelte";
     import PersonalBestGWTable from "../lib/PersonalBestGWTable.svelte";
     import QuarterlyStandings from "../lib/QuarterlyStandings.svelte";
+    import Players from "../lib/Players.svelte";
     export let data;
     const h2hStandings = data.fplData.standings;
     const fplStandings = [...h2hStandings];
@@ -21,6 +22,7 @@
         <PersonalBestGWTable players="{players}"/>
         <QuarterlyStandings players="{players}" quarter="{1}"/>
     </div>
+    <Players players="{players}" />
 </div>
 
 <style lang="less">
@@ -41,6 +43,7 @@
       display: flex;
       gap: 80px;
       width: 1600px;
+      margin-bottom: 40px;
     }
 
     :global {
