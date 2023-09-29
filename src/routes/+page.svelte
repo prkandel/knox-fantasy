@@ -20,7 +20,8 @@
     <div class="wrapper">
         <H2HStandingTable standings="{h2hStandings}"/>
 <!--        <FPLPointsStanding standings="{fplStandings}"/>-->
-<!--        <PersonalBestGWTable players="{players}"/>-->
+        <PersonalBestGWTable players="{players}"/>
+        <Players players="{players}" />
 <!--        <QuarterlyStandings players="{players}" quarter="{1}"/>-->
     </div>
 <!--    <Players players="{players}" />-->
@@ -29,5 +30,20 @@
 <style lang="less">
     :global body {
       margin: 0;
+    }
+    @media (max-width: 768px) {
+      .wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+      }
+    }
+    @media (min-width: 1024px) {
+      .wrapper {
+        display: flex;
+        justify-content: space-around;
+        width: 1024px;
+        margin: 0 auto;
+      }
     }
 </style>

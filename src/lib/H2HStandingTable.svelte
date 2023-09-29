@@ -16,7 +16,7 @@
 
 </script>
 
-<div class="h2h-standing-container">
+<div class="standing-container">
     <h3>
         H2H Standings
     </h3>
@@ -55,44 +55,36 @@
 </div>
 
 <style lang="less">
-    .h2h-standing-container {
-      margin: 0 auto;
-      h3 {
-        text-align: center;
-        margin-bottom: 10px;
-      }
-      padding: 14px 0 24px;
-      background: #aaa;
-    }
-    .team-manager {
-      display: flex;
-      flex-direction: column;
-    }
-    .standing-table {
-      display: flex;
-      justify-content: center;
-      padding: 0 14px;
-    }
-    .team-name {
-      font-size: 14px;
-    }
-    .player-name {
-      font-size: 12px;
-    }
-    table {
-      background: #fff;
-    }
-    thead {
-      position: sticky;
-      top: 0;
-      left: 0;
-    }
-    th {
-      background: #eee;
-    }
     :global {
+      .standing-container {
+        @media (min-width: 768px) {
+          margin: 0 auto;
+        }
+        h3 {
+          text-align: center;
+          margin-bottom: 10px;
+        }
+        padding: 14px 0 24px;
+        background: #fafafa;
+      }
       h1,h2,h3 {
         margin: 0;
+      }
+      table {
+        background: #fff;
+      }
+      .standing-table {
+        display: flex;
+        justify-content: center;
+        padding: 0 14px;
+      }
+      thead {
+        position: sticky;
+        top: 0;
+        left: 0;
+      }
+      th {
+        background: #eee;
       }
       table, th, td {
         border-collapse: collapse;
@@ -104,6 +96,16 @@
       @media (min-width: 768px) {
         table, th, td {
           padding: 10px;
+        }
+      }
+      .team-manager {
+        display: flex;
+        flex-direction: column;
+        .team-name {
+          font-size: 14px;
+        }
+        .player-name {
+          font-size: 12px;
         }
       }
     }

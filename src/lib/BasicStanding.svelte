@@ -5,12 +5,12 @@
 </script>
 
 
-<div>
+<div class="standing-container">
     <h3>
         {headline}
     </h3>
 
-    <div>
+    <div class="standing-table">
         <table>
             <thead>
             <tr>
@@ -24,8 +24,8 @@
                 <tr>
                     <td>{index + 1}</td>
                     <td class="team-manager">
-                        <span>{player.entryName}</span>
-                        <span>{player.playerName}</span>
+                        <span class="team-name">{player.entryName}</span>
+                        <span class="player-name">{player.playerName}</span>
                     </td>
                     <td>{player[key]}</td>
                 </tr>
@@ -34,9 +34,3 @@
         </table>
     </div>
 </div>
-<style lang="less">
-  .team-manager {
-    display: flex;
-    flex-direction: column;
-  }
-</style>
