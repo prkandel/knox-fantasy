@@ -26,7 +26,7 @@
             <thead>
             <tr>
                 <th on:click={() => {sortByColumn('rank')}}>Rank</th>
-                <th>Team</th>
+                <th class="team">Team</th>
                 <th on:click={() => {sortByColumn('matches_won')}}>W</th>
                 <th on:click={() => {sortByColumn('matches_drawn')}}>D</th>
                 <th on:click={() => {sortByColumn('matches_lost')}}>L</th>
@@ -55,6 +55,9 @@
 </div>
 
 <style lang="less">
+    th:not(.team) {
+      cursor: pointer;
+    }
     :global {
       .standing-container {
         @media (min-width: 768px) {
