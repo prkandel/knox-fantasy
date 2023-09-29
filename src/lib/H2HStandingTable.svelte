@@ -1,8 +1,22 @@
 <script>
     export let standings;
+
+    let sortBy = null;
+    let sortDirection = 1;
+
+    function sortByColumn(column) {
+        if (sortBy === column) {
+            sortDirection *= -1;
+        } else {
+            sortDirection = 1;
+            sortBy = column;
+        }
+        standings = standings.sort((a,b) => { return (a[column] < b[column] ? -1 : 1) * sortDirection});
+    }
+
 </script>
 
-<div>
+<div class="h2h-standing-container">
     <h3>
         H2H Standings
     </h3>
@@ -11,13 +25,13 @@
         <table>
             <thead>
             <tr>
-                <th>Rank</th>
-                <th>Team & Manager</th>
-                <th>Win</th>
-                <th>Draw</th>
-                <th>Loss</th>
-                <th>Score</th>
-                <th>Points</th>
+                <th on:click={() => {sortByColumn('rank')}}>Rank</th>
+                <th>Team</th>
+                <th on:click={() => {sortByColumn('matches_won')}}>W</th>
+                <th on:click={() => {sortByColumn('matches_drawn')}}>D</th>
+                <th on:click={() => {sortByColumn('matches_lost')}}>L</th>
+                <th on:click={() => {sortByColumn('points_for')}}>Score</th>
+                <th on:click={() => {sortByColumn('total')}}>Pts</th>
             </tr>
             </thead>
             <tbody>
