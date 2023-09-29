@@ -21,7 +21,7 @@
         H2H Standings
     </h3>
 
-    <div>
+    <div class="standing-table">
         <table>
             <thead>
             <tr>
@@ -39,8 +39,8 @@
                 <tr>
                     <td>{standing.rank}</td>
                     <td class="team-manager">
-                        <span>{standing.entry_name}</span>
-                        <span>{standing.player_name}</span>
+                        <span class="team-name">{standing.entry_name}</span>
+                        <span class="player-name">{standing.player_name}</span>
                     </td>
                     <td>{standing.matches_won}</td>
                     <td>{standing.matches_drawn}</td>
@@ -55,8 +55,56 @@
 </div>
 
 <style lang="less">
+    .h2h-standing-container {
+      margin: 0 auto;
+      h3 {
+        text-align: center;
+        margin-bottom: 10px;
+      }
+      padding: 14px 0 24px;
+      background: #aaa;
+    }
     .team-manager {
       display: flex;
       flex-direction: column;
+    }
+    .standing-table {
+      display: flex;
+      justify-content: center;
+      padding: 0 14px;
+    }
+    .team-name {
+      font-size: 14px;
+    }
+    .player-name {
+      font-size: 12px;
+    }
+    table {
+      background: #fff;
+    }
+    thead {
+      position: sticky;
+      top: 0;
+      left: 0;
+    }
+    th {
+      background: #eee;
+    }
+    :global {
+      h1,h2,h3 {
+        margin: 0;
+      }
+      table, th, td {
+        border-collapse: collapse;
+        padding: 7px;
+      }
+      tbody tr:nth-child(even) {
+        background-color: rgba(0,0,0,0.1);
+      }
+      @media (min-width: 768px) {
+        table, th, td {
+          padding: 10px;
+        }
+      }
     }
 </style>

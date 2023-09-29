@@ -4,6 +4,7 @@
     import PersonalBestGWTable from "../lib/PersonalBestGWTable.svelte";
     import QuarterlyStandings from "../lib/QuarterlyStandings.svelte";
     import Players from "../lib/Players.svelte";
+    import Header from "../lib/Header.svelte";
     export let data;
     const h2hStandings = data.fplData.standings;
     const fplStandings = [...h2hStandings];
@@ -14,46 +15,19 @@
 </script>
 
 <div class="container">
-    <h1>KNOX FANTASY LEAGUE 2023/24</h1>
-    <div class="gw">Current GW {data.fplData.event}</div>
+    <Header />
+<!--    <div class="gw">Current GW {data.fplData.event}</div>-->
     <div class="wrapper">
         <H2HStandingTable standings="{h2hStandings}"/>
-        <FPLPointsStanding standings="{fplStandings}"/>
-        <PersonalBestGWTable players="{players}"/>
-        <QuarterlyStandings players="{players}" quarter="{1}"/>
+<!--        <FPLPointsStanding standings="{fplStandings}"/>-->
+<!--        <PersonalBestGWTable players="{players}"/>-->
+<!--        <QuarterlyStandings players="{players}" quarter="{1}"/>-->
     </div>
-    <Players players="{players}" />
+<!--    <Players players="{players}" />-->
 </div>
 
 <style lang="less">
-    h1 {
-      color: red;
-      text-align: center;
-    }
-
-    .gw {
-      text-align: center;
-    }
-
-    .container {
-      margin: 0 auto;
-    }
-
-    .wrapper {
-      display: flex;
-      gap: 80px;
-      width: 1600px;
-      margin-bottom: 40px;
-    }
-
-    :global {
-      table, th, td {
-        border: 1px solid #000;
-      }
-
-      th {
-        background-color: #f2f2f2;
-        font-weight: bold;
-      }
+    :global body {
+      margin: 0;
     }
 </style>
