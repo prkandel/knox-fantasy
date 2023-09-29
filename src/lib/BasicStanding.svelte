@@ -2,6 +2,12 @@
     export let players;
     export let headline;
     export let key;
+
+    let sortDirection = 1;
+    function sortByPoints() {
+        players = players.sort((a,b) => { return (a[key] < b[key] ? -1 : 1) * sortDirection});
+        sortDirection *= -1;
+    }
 </script>
 
 
@@ -16,7 +22,7 @@
             <tr>
                 <th>Rank</th>
                 <th>Team & Manager</th>
-                <th>Points</th>
+                <th class="sortable" on:click={sortByPoints}>Points</th>
             </tr>
             </thead>
             <tbody>
@@ -34,3 +40,9 @@
         </table>
     </div>
 </div>
+
+<style lang="less">
+    .sortable {
+      cursor: pointer;
+    }
+</style>

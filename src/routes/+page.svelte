@@ -20,9 +20,9 @@
     <div class="wrapper">
         <H2HStandingTable standings="{h2hStandings}"/>
 <!--        <FPLPointsStanding standings="{fplStandings}"/>-->
+        <QuarterlyStandings players="{players}" quarter="{1}"/>
         <PersonalBestGWTable players="{players}"/>
         <Players players="{players}" />
-<!--        <QuarterlyStandings players="{players}" quarter="{1}"/>-->
     </div>
 <!--    <Players players="{players}" />-->
 </div>
@@ -40,8 +40,8 @@
     }
     @media (min-width: 1024px) {
       .wrapper {
-        display: flex;
-        justify-content: space-around;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
         width: 1024px;
         margin: 0 auto;
       }
