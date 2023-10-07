@@ -55,6 +55,8 @@ async function getPlayerData() {
 
         const totalPoints = (currentSeasonHistory[currentSeasonHistory.length - 1]).total_points;
 
+        const currentGwNegative = (currentSeasonHistory[currentSeasonHistory.length - 1]).event_transfers_cost;
+
         const allGwPoints = currentSeasonHistory.map(gw => gw.points - gw.event_transfers_cost);
         const extendedGwPointsArray = extendArray(allGwPoints);
         const quarterlyPoints = getQuarterlyPoints(extendedGwPointsArray);
@@ -67,7 +69,8 @@ async function getPlayerData() {
             q2TotalPoints: quarterlyPoints[1],
             q3TotalPoints: quarterlyPoints[2],
             q4TotalPoints: quarterlyPoints[3],
-            chips
+            chips,
+            currentGwNegative: -currentGwNegative
         }
         players.push(player);
     }

@@ -5,6 +5,7 @@
     import QuarterlyStandings from "../lib/QuarterlyStandings.svelte";
     import Players from "../lib/Players.svelte";
     import Header from "../lib/Header.svelte";
+    import CurrentGwNegative from "../lib/CurrentGwNegative.svelte";
     export let data;
     const h2hStandings = data.fplData.standings;
     const fplStandings = [...h2hStandings];
@@ -22,6 +23,7 @@
 <!--        <FPLPointsStanding standings="{fplStandings}"/>-->
         <QuarterlyStandings players="{players}" quarter="{1}"/>
         <PersonalBestGWTable players="{players}"/>
+        <CurrentGwNegative players="{players}"/>
         <Players players="{players}" />
     </div>
 <!--    <Players players="{players}" />-->
