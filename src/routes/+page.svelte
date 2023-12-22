@@ -21,6 +21,7 @@
     <div class="wrapper">
         <H2HStandingTable standings="{h2hStandings}"/>
 <!--        <FPLPointsStanding standings="{fplStandings}"/>-->
+        <QuarterlyStandings players="{players}" quarter="{2}"/>
         <QuarterlyStandings players="{players}" quarter="{1}"/>
         <PersonalBestGWTable players="{players}"/>
         <CurrentGwNegative players="{players}"/>
